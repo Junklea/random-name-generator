@@ -11,7 +11,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.white,
       ),
-      home: MainScreen(),
+      routes: {
+        '/': (context) => MainScreen(),
+        '/favorites': (context) => FavoritesScreen(),
+      },
+      // home: MainScreen(),
       // home: FavoritesScreen(),
       debugShowCheckedModeBanner: false,
     );

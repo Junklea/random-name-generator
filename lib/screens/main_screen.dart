@@ -15,7 +15,11 @@ class _MainScreenState extends State<MainScreen> {
       appBar: AppBar(
         title: Text('Random Name Generator'),
         actions: <Widget>[
-          IconButton(icon: Icon(Icons.list), onPressed: () => print("todo")),
+          IconButton(
+              icon: Icon(Icons.list),
+              onPressed: () {
+                Navigator.pushNamed(context, '/favorites');
+              }),
         ],
       ),
       body: _buildSuggestions(),

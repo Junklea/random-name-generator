@@ -13,7 +13,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Random Name Generator'),
+        title: Text('Favorites'),
       ),
       body: _buildFavorites(),
     );
