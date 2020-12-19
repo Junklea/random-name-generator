@@ -1,38 +1,35 @@
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
-import '../components/build_row.dart';
+import 'package:random_name_generator/components/build_row.dart';
 import '../globals.dart';
 
-class MainScreen extends StatefulWidget {
+class FavoritesScreen extends StatefulWidget {
   @override
-  _MainScreenState createState() => _MainScreenState();
+  _FavoritesScreenState createState() => _FavoritesScreenState();
 }
 
-class _MainScreenState extends State<MainScreen> {
+class _FavoritesScreenState extends State<FavoritesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Random Name Generator'),
-        actions: <Widget>[
-          IconButton(icon: Icon(Icons.list), onPressed: () => print("todo")),
-        ],
       ),
-      body: _buildSuggestions(),
+      body: _buildFavorites(),
     );
   }
 
-  Widget _buildSuggestions() {
+  Widget _buildFavorites() {
+    final List<WordPair> pairs = saved.toList();
+
     return ListView.builder(
       padding: const EdgeInsets.all(16),
+      itemCount: pairs.length,
       itemBuilder: (BuildContext _context, int i) {
-        if (i >= suggestions.length) {
-          suggestions.addAll(generateWordPairs().take(10));
-        }
         return Column(
           children: [
             BuildRow(
-              pair: suggestions[i],
+              pair: pairs[i],
             ),
             Divider(),
           ],

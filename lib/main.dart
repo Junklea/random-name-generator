@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:random_name_generator/screens/main_screen.dart';
+import './screens/screens.dart';
 
 void main() => runApp(MyApp());
 
@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.white,
       ),
       home: MainScreen(),
+      // home: FavoritesScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
