@@ -1,4 +1,3 @@
-import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:random_name_generator/components/build_row.dart';
 import '../globals.dart';
@@ -20,16 +19,14 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
   }
 
   Widget _buildFavorites() {
-    final List<WordPair> pairs = saved.toList();
-
     return ListView.builder(
       padding: const EdgeInsets.all(16),
-      itemCount: pairs.length,
+      itemCount: likedPairs.length,
       itemBuilder: (BuildContext _context, int i) {
         return Column(
           children: [
             BuildRow(
-              pair: pairs[i],
+              index: i,
             ),
             Divider(),
           ],

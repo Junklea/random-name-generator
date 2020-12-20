@@ -1,4 +1,3 @@
-import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import '../components/build_row.dart';
 import '../globals.dart';
@@ -29,14 +28,12 @@ class _MainScreenState extends State<MainScreen> {
   Widget _buildSuggestions() {
     return ListView.builder(
       padding: const EdgeInsets.all(16),
+      itemCount: pairList.length,
       itemBuilder: (BuildContext _context, int i) {
-        if (i >= suggestions.length) {
-          suggestions.addAll(generateWordPairs().take(10));
-        }
         return Column(
           children: [
             BuildRow(
-              pair: suggestions[i],
+              index: i,
             ),
             Divider(),
           ],

@@ -1,10 +1,9 @@
-import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import '../globals.dart';
 
 class BuildRow extends StatefulWidget {
-  final WordPair pair;
-  const BuildRow({Key key, @required this.pair}) : super(key: key);
+  final int index;
+  const BuildRow({Key key, @required this.index}) : super(key: key);
 
   @override
   _BuildRowState createState() => _BuildRowState();
@@ -15,10 +14,10 @@ class _BuildRowState extends State<BuildRow> {
 
   @override
   Widget build(BuildContext context) {
-    final bool alreadyLiked = saved.contains(widget.pair);
+    final bool alreadyLiked = likedPairs.contains(widget.index);
     return ListTile(
       title: Text(
-        widget.pair.asPascalCase,
+        pairList[widget.index].asPascalCase,
         style: _biggerFont,
       ),
       trailing: GestureDetector(
@@ -28,11 +27,11 @@ class _BuildRowState extends State<BuildRow> {
         ),
         onTap: () {
           setState(() {
-            print(widget.pair.asPascalCase);
+            print(pairList[widget.index].asPascalCase);
             if (alreadyLiked) {
-              saved.remove(widget.pair);
+              likedPairs.remove(widget.index);
             } else {
-              saved.add(widget.pair);
+              likedPairs.add(widget.index);
             }
           });
         },
